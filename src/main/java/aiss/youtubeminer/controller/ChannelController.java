@@ -16,8 +16,8 @@ public class ChannelController {
     ChannelService channelService;
 
     @GetMapping
-    public Channel getChannel(@RequestParam String part, @RequestParam String id, @RequestParam String apiKey){
-        Channel channel = channelService.findChannelById(part, id, apiKey);
+    public Channel getChannel(@RequestParam String id, @RequestParam String apiKey){
+        Channel channel = channelService.getChannelById(id, apiKey);
         return channel;
     }
 }

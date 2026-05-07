@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import java.util.Arrays;
+import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -18,7 +18,7 @@ import java.util.Arrays;
         "comments"
 })
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class VideosDTO {
+public class VideoDTO {
     @JsonProperty("id")
     private String id;
     @JsonProperty("name")
@@ -30,9 +30,9 @@ public class VideosDTO {
     @JsonProperty("user")
     private UserDTO userDTO;
     @JsonProperty("captions")
-    private CaptionDTO[] captionDTO;
+    private List<CaptionDTO> captionDTO;
     @JsonProperty("comments")
-    private CommentDTO[] commentDTO;
+    private List<CommentDTO> commentDTO;
 
     @JsonProperty("id")
     public String getId() {
@@ -75,32 +75,32 @@ public class VideosDTO {
         this.userDTO = userDTO;
     }
     @JsonProperty("captions")
-    public CaptionDTO[] getCaptionDTO() {
+    public List<CaptionDTO> getCaptionDTO() {
         return captionDTO;
     }
     @JsonProperty("captions")
-    public void setCaptionDTO(CaptionDTO[] captionDTO) {
+    public void setCaptionDTO(List<CaptionDTO> captionDTO) {
         this.captionDTO = captionDTO;
     }
     @JsonProperty("comments")
-    public CommentDTO[] getCommentDTO() {
+    public List<CommentDTO> getCommentDTO() {
         return commentDTO;
     }
     @JsonProperty("comments")
-    public void setCommentDTO(CommentDTO[] commentDTO) {
+    public void setCommentDTO(List<CommentDTO> commentDTO) {
         this.commentDTO = commentDTO;
     }
 
     @Override
     public String toString() {
-        return "VideosDTO{" +
+        return "VideoDTO{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", description='" + description.replaceAll("\\R","") + '\'' +
+                ", description='" + description + '\'' +
                 ", releaseTime='" + releaseTime + '\'' +
-                ", user=" + userDTO +
-                ", captionDTO=" + Arrays.stream(captionDTO).toList() +
-                ", commentDTO=" + Arrays.toString(commentDTO) +
-                '}'+"\n";
+                ", userDTO=" + userDTO +
+                ", captionDTO=" + captionDTO +
+                ", commentDTO=" + commentDTO +
+                '}';
     }
 }

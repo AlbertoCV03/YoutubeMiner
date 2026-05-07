@@ -24,7 +24,7 @@ public class ChannelDTO {
     @JsonProperty("createdTime")
     private String createdTime;
     @JsonProperty("videos")
-    private List<VideosDTO> videos;
+    private List<VideoDTO> videos;
 
     public String getId() {
         return id;
@@ -58,11 +58,11 @@ public class ChannelDTO {
         this.createdTime = createdTime;
     }
 
-    public List<VideosDTO> getVideos() {
+    public List<VideoDTO> getVideos() {
         return videos;
     }
 
-    public void setVideos(List<VideosDTO> videos) {
+    public void setVideos(List<VideoDTO> videos) {
         this.videos = videos;
     }
 
