@@ -33,12 +33,12 @@ public class VideoService {
     private static final String idParam = "&channelId=";
     private static final String maxVideosParam = "&maxResults=";
 
-    public Video getAllVideosByChannelId(String channelId, String maxVideos, String apiKey){
+    public Video getAllVideosByChannelId(String channelId, int maxVideos, String apiKey){
         Video videos = restTemplate.getForObject(BASE_URI+partParam+idParam+channelId+maxVideosParam+maxVideos+typeParam+key+apiKey, Video.class);
         return videos;
     }
 
-    public List<VideoDTO> getAllVideosDTO(String channelId, String maxVideos, String maxComments, String apiKey){
+    public List<VideoDTO> getAllVideosDTO(String channelId, int maxVideos, int maxComments, String apiKey){
         Video videos = getAllVideosByChannelId(channelId, maxVideos, apiKey);
         List<VideoDTO> videosDTO = new ArrayList<>();
 

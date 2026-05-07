@@ -22,7 +22,7 @@ public class UserService {
 
         UserDTO user = new UserDTO();
         user.setId(null);
-        user.setName(channel.getItems().get(0).getSnippet().getCustomUrl());
+        user.setName(channel.getItems().get(0).getSnippet().getTitle());
         user.setUser_link("https://www.youtube.com/"+user.getName());
         user.setPicture_link(channel.getItems().get(0).getSnippet().getThumbnails().getMedium().getUrl());
 

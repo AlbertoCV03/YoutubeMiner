@@ -21,12 +21,12 @@ public class CommentService {
     private static final String idParam = "&videoId=";
     private static final String maxCommentsParam = "&maxResults=";
 
-    public Datum getAllCommentsByVideoId(String videoId, String maxComments, String apiKey){
+    public Datum getAllCommentsByVideoId(String videoId, int maxComments, String apiKey){
         Datum comments = restTemplate.getForObject(BASE_URI+partParam+idParam+videoId+maxCommentsParam+maxComments+key+apiKey, Datum.class);
         return comments;
     }
 
-    public List<CommentDTO> getAllCommentsDTO(String videoId,String maxComments, String apiKey){
+    public List<CommentDTO> getAllCommentsDTO(String videoId,int maxComments, String apiKey){
         Datum comments = getAllCommentsByVideoId(videoId, maxComments, apiKey);
         List<CommentDTO> commentsDTO = new ArrayList<>();
 

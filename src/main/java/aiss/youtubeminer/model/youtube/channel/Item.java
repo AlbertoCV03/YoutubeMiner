@@ -9,25 +9,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "id",
     "snippet"
 })
 public class Item {
-
-    @JsonProperty("id")
-    private String id;
     @JsonProperty("snippet")
     private Snippet snippet;
-
-    @JsonProperty("id")
-    public String getId() {
-        return id;
-    }
-
-    @JsonProperty("id")
-    public void setId(String id) {
-        this.id = id;
-    }
 
     @JsonProperty("snippet")
     public Snippet getSnippet() {
@@ -39,9 +25,11 @@ public class Item {
         this.snippet = snippet;
     }
 
-    @Override public String toString() {
-    return "Item{" +
-            "id='" + id + '\'' +
-            ", snippet=" + snippet +
-            '}';
-}}
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "snippet=" + snippet +
+                '}';
+    }
+}
