@@ -15,9 +15,5 @@ public class ChannelController {
     @Autowired
     ChannelService channelService;
 
-    @GetMapping
-    public Channel getChannel(@RequestParam String id, @RequestParam String apiKey){
-        Channel channel = channelService.getChannelById(id, apiKey);
-        return channel;
-    }
+
 }

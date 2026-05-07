@@ -24,10 +24,6 @@ public class ChannelService {
     private static final String idParam = "&id=";
     private static final String userName = "&forUsername=";
 
-    public Channel getChannelById(String id, String apiKey){
-        Channel channel = restTemplate.getForObject(BASE_URI+partParam+idParam+id+key+apiKey, Channel.class);
-        return channel;
-    }
 
     public Channel getChannelByName(String name, String apiKey){
         Channel channel = restTemplate.getForObject(BASE_URI+partParam+userName+name+key+apiKey, Channel.class);
@@ -35,7 +31,7 @@ public class ChannelService {
     }
 
     public ChannelDTO getChannelDTOByName(String channelName, String maxVideos, String maxComments, String apiKey){
-        Channel channel = getChannelById(channelName, apiKey);
+        Channel channel = getChannelByName(channelName, apiKey);
         ChannelDTO channelDTO = new ChannelDTO();
 
         channelDTO.setId(channel.getItems().get(0).getId());
@@ -48,5 +44,14 @@ public class ChannelService {
 
         return channelDTO;
     }
+
+    public ChannelDTO postChannelByName(String name, String maxVideos, String maxComments, String apiKey){
+        ChannelDTO channel = getChannelDTOByName(name, maxVideos, maxComments, apiKey);
+
+        restTemplate.postForObject("http://localhost:8080/videominer/channels", channel, ChannelDTO.class);
+        return channel;
+    }
+
+
 
 }
