@@ -218,3 +218,14 @@ Channel not found.
 | `id` | string | Comment ID |
 | `text` | string | Comment text |
 | `createdOn` | string | Comment timestamp |
+
+# Error Codes
+
+The API may return the following HTTP status codes depending on the outcome of the request.
+
+| Status Code | Name | Description |
+|-----------:|------|-------------|
+| `200` | OK | The request was successful and the requested channel was returned. |
+| `201` | Created | The channel was successfully retrieved and stored in the VideoMiner database. |
+| `404` | Not Found | The specified channel could not be found on the source platform. |
+| `500` | Internal Server Error | The channel object was incorrectly formed, usually because the provided channel ID or name does not exist or the upstream service returned invalid data. |
