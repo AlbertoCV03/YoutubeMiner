@@ -3,7 +3,7 @@
 ## Overview
 
 - **OpenAPI Version:** 3.1.0
-- **API Version:** v0
+- **API Version:** v1
 - **Base URL:** `http://localhost:8083`
 - **Tag:** Channel
 
